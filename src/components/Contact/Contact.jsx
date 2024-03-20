@@ -13,9 +13,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {styled} from '@mui/system';
-import shortid from "shortid";
 import Avatar from "react-avatar";
 import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
 const StyledFab = styled(Fab)(({theme}) => ({
     position: 'absolute',
@@ -25,36 +25,10 @@ const StyledFab = styled(Fab)(({theme}) => ({
 
 
 export default function Contact() {
-    const allContact = [
-        {
-            id: shortid.generate(),
-            name: "asad",
-            email: "asadalkhair1994@gmail.com",
-            dateCreated: "10/02/2020",
-            dateModified: "10/02/2020",
-        },
-        {
-            id: shortid.generate(),
-            name: "mohsin",
-            email: "mohsin@gmail.com",
-            dateCreated: "10/02/2020",
-            dateModified: "10/02/2020",
-        },
-        {
-            id: shortid.generate(),
-            name: " aiqa",
-            email: "aiqa@gmail.com",
-            dateCreated: "10/02/2020",
-            dateModified: "10/02/2020",
-        },
-        {
-            id: shortid.generate(),
-            name: " Nadeem arif",
-            email: "arif@gmail.com",
-            dateCreated: "10/02/2020",
-            dateModified: "10/02/2020",
-        },
-    ]
+
+    const allContact = useSelector((state) => state.allContacts)
+
+
     return (
         <>
             <div>

@@ -35,32 +35,13 @@ const initialState ={
     ],
     contact:null,
 }
-const contactReducer=(state=initialState, action)=>{
+
+const contactReducer = (state=initialState, action) => {
     switch (action.type){
         case ADD_CONTACT:
-            return{
+            return {
                 ...state,
                 allContacts: [action.payload, ...state.allContacts]
-            }
-        case GET_CONTACT:
-            let arr = state.allContacts.filter((contact) => contact.id === action.payload)
-            arr = arr.values();
-            for (let val of arr){
-                arr= val
-            }
-            return{
-                ...state,
-                contact: arr
-            }
-        case UPDATE_CONTACT:
-            return{
-                ...state,
-                allContacts: state.allContacts.map(contact=> contact.id === action.payload ? action.payload : contact)
-            }
-        case DELETE_CONTACT:
-            return{
-                ...state,
-                allContacts: state.allContacts.filter(contact=> contact.id !== action.payload)
             }
         default :
             return state

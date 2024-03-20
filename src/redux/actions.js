@@ -2,11 +2,10 @@ import {ADD_CONTACT, DELETE_CONTACT, GET_CONTACT, UPDATE_CONTACT} from "./types"
 
 
 export const addContact = (contact) => {
-    return{
+    return {
         type: ADD_CONTACT,
         payload: contact,
     }
-
 }
 export const getContact = (id) => {
     return{
