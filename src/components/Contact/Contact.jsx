@@ -16,6 +16,7 @@ import {styled} from '@mui/system';
 import Avatar from "react-avatar";
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
+import {deleteContact} from "../../redux/actions";
 
 const StyledFab = styled(Fab)(({theme}) => ({
     position: 'absolute',
@@ -25,7 +26,7 @@ const StyledFab = styled(Fab)(({theme}) => ({
 
 
 export default function Contact() {
-
+const dispatch = useDispatch();
     const allContact = useSelector((state) => state.allContacts)
 
 
@@ -69,7 +70,9 @@ export default function Contact() {
                                         </Link>
                                     </span>
                                     <span style={{marginRight: "3px"}}>
-                                        <DeleteIcon color="secondary"/>
+                                        <DeleteIcon color="secondary"
+                                                    onClick={() => dispatch(deleteContact(contact.id))}
+                                        />
                                     </span>
                                 </TableCell>
                             </TableRow>
